@@ -15,8 +15,8 @@ BUTTON_CELL_COMPAT = {
     "CR2450": ["D"],                 # 24.5mm - only fits D
     "CR2032": ["D", "C"],            # 20mm - fits D and C
     "CR2016": ["D", "C"],            # 20mm - fits D and C
-    "CR1632": ["D", "C", "AA"],      # 16mm - fits all
-    "CR1616": ["D", "C", "AA"],      # 16mm - fits all
+    "CR1632": ["D", "C"],            # 16mm - fits D and C
+    "CR1616": ["D", "C"],            # 16mm - fits D and C
 }
 
 CYLINDER_COMPAT = {
