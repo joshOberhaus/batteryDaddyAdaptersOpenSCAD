@@ -51,7 +51,7 @@ thickness_clearance = 0.1; // [0.1:0.1:1]
 // Spacing between battery slots
 slot_spacing = 1.0; // [0.5:0.1:3]
 // Wall thickness at top and bottom
-end_wall_thickness = 1.5; // [1:0.25:5]
+end_wall_thickness = 1.25; // [1:0.25:5]
 // Compliant mechanism thickness
 compliant_thickness = 1.0; // [0.5:0.1:2]
 // Gap between compliant mechanism and slot edges
