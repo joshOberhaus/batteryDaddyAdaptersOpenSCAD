@@ -28,7 +28,6 @@ jobs:
       
       - name: Generate Release
         run: |
-          chmod +x generate_release.sh
           python3 generate_release.py
       
       - name: Check Release Status
