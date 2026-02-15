@@ -28,9 +28,10 @@ def run_openscad(scad_file, output_file, params):
     """Run OpenSCAD to generate an STL file."""
     cmd = ["openscad", "-o", str(output_file)]
     for key, value in params.items():
-        cmd.extend(["-p", f"{key}={value}"])
+        cmd.extend(["-D", f"{key}={value}"])
     cmd.append(str(scad_file))
     
+    print("Running:", " ".join(cmd))
     try:
         result = subprocess.run(cmd, capture_output=True, text=True, check=True)
         return True, None
