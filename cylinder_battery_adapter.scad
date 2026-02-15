@@ -35,7 +35,7 @@ $fn = 100;
 
 // Stored battery specifications [name, diameter, length]
 stored_battery_specs = [
-    ["A27",  7.7, 28.0],
+    ["A27",  7.75, 28.0],
     ["AAAA", 8.3, 42.5]
 ];
 
