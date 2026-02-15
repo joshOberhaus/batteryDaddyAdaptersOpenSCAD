@@ -1,0 +1,55 @@
+name: Generate Release STLs
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '*.scad'
+      - '.github/workflows/generate_stls.yml'
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  generate-stls:
+    runs-on: ubuntu-latest
+    
+    container:
+      image: ubuntu:latest
+    
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Install OpenSCAD
+        run: |
+          apt-get update
+          apt-get install -y openscad python3
+      
+      - name: Generate Release
+        run: |
+          chmod +x generate_release.sh
+          python3 generate_release.py
+      
+      - name: Check Release Status
+        run: |
+          if [ -d "releases" ] && [ "$(find releases -name '*.stl' | wc -l)" -gt 0 ]; then
+            echo "RELEASE_STATUS=success" >> $GITHUB_ENV
+          else
+            echo "RELEASE_STATUS=failed" >> $GITHUB_ENV
+          fi
+      
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: battery-adapters-release
+          path: releases/
+      
+      - name: Create GitHub Release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v1
+        with:
+          files: releases/*/stls/*.stl
+          body_path: releases/*/MANIFEST.txt
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

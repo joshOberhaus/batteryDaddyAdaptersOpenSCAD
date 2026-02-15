@@ -1,5 +1,7 @@
 # BatteryDaddy Adapters
 
+![Generate STLs](https://github.com/joshOberhaus/batteryDaddyAdaptersOpenSCAD/actions/workflows/generate_stls.yml/badge.svg)
+
 Parametric OpenSCAD adapters for using smaller batteries inside larger battery holders.
 
 - **Purpose:** Provide ready-to-use adapter models to hold coin cells and small cylindrical batteries inside D/C/AA holders.
