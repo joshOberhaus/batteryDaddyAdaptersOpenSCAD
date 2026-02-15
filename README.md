@@ -1,1 +1,1 @@
-"# batteryDaddyAdaptersOpenSCAD" 
+# batteryDaddyAdaptersOpenSCAD
